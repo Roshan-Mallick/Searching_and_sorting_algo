@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-void merge(int arr[], int low, int mid, int high)
-{
+void merge(int arr[], int low, int mid, int high){
     int temp[high - low + 1];
     int left = low;
     int right = mid + 1;
@@ -9,34 +8,25 @@ void merge(int arr[], int low, int mid, int high)
 
     while (left <= mid && right <= high)
     {
-        if (arr[left] <= arr[right])
-        {
+        if (arr[left] <= arr[right]){
             temp[k++] = arr[left++];
-        }
-        else
-        {
+        }else{
             temp[k++] = arr[right++];
         }
     }
 
-    while (left <= mid)
-    {
+    while (left <= mid){
         temp[k++] = arr[left++];
-    }
-
-    while (right <= high)
-    {
+    } while (right <= high){
         temp[k++] = arr[right++];
     }
 
-    for (int i = low; i <= high; i++)
-    {
+    for (int i = low; i <= high; i++) {
         arr[i] = temp[i - low];
     }
 }
 
-void merge_sort(int arr[], int low, int high)
-{
+void merge_sort(int arr[], int low, int high){
     if (low == high)
         return;
 
